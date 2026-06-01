@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Araya.ca | Ontario Apartment Rentals</title>
+  <meta name="description" content="Araya.ca offers thoughtfully managed apartment rentals across Ontario, with family-owned service and communities across the GTA and Ontario." />
+  <style>
+    :root{--ink:#17211d;--muted:#5c6862;--paper:#f7f5ef;--white:#fff;--river:#245b63;--cedar:#9d4f36;--sun:#efc16a;--line:#d8ded9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.5}a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px clamp(20px,4vw,64px);background:rgba(247,245,239,.92);border-bottom:1px solid rgba(23,33,29,.1);backdrop-filter:blur(16px)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900}.mark{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--river);color:white}nav{display:flex;gap:28px;color:var(--muted)}.phone{font-weight:800;color:var(--river)}
+    .hero{min-height:calc(100vh - 72px);display:flex;align-items:end;position:relative;isolation:isolate;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(16,24,21,.85),rgba(16,24,21,.38),rgba(16,24,21,.08)),url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85") center/cover}.hero:after{content:"";position:absolute;inset:auto 0 0;height:22vh;background:linear-gradient(0deg,var(--paper),transparent);z-index:-1}
+    .hero-content{width:min(760px,calc(100% - 40px));margin:0 clamp(20px,6vw,88px) 13vh;color:white}.eyebrow{margin:0 0 14px;color:var(--cedar);font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.hero .eyebrow{color:var(--sun)}
+    h1,h2,h3,p{margin-top:0}h1{font-size:clamp(4rem,12vw,9rem);line-height:.86;margin-bottom:18px}h2{font-size:clamp(2rem,5vw,4.5rem);line-height:1;margin-bottom:0}h3{font-size:1.25rem;margin-bottom:8px}.hero p{max-width:620px;font-size:clamp(1.05rem,2vw,1.35rem);color:rgba(255,255,255,.9)}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 20px;border-radius:8px;font-weight:900}.primary{background:var(--cedar);color:white}.secondary{border:1px solid rgba(255,255,255,.6);color:white}
+    section{width:min(1180px,calc(100% - 40px));margin:auto;padding:clamp(56px,9vw,110px) 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding-top:30px}.stat{background:white;border:1px solid var(--line);border-radius:8px;padding:26px;min-height:150px}.stat strong{display:block;color:var(--river);font-size:clamp(2.4rem,6vw,4.3rem);line-height:1;margin-bottom:10px}.stat span,.copy,.card p,.meta span,.steps p,.contact p{color:var(--muted)}
+    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:start}.copy{font-size:1.06rem}.heading{max-width:760px;margin-bottom:34px}
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}.filters button{min-height:40px;padding:9px 16px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--river);font:inherit;font-weight:900;cursor:pointer}.filters button.active{background:var(--river);color:white;border-color:var(--river)}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{overflow:hidden;background:white;border:1px solid var(--line);border-radius:8px}.card img{width:100%;aspect-ratio:4/3;object-fit:cover}.card-body{display:grid;gap:18px;padding:18px;min-height:260px}.pill{display:inline-flex;margin-bottom:14px;padding:5px 9px;border-radius:999px;background:#e6eeea;color:var(--river);font-size:.76rem;font-weight:900}.card a{color:var(--river);font-weight:900}.meta strong{display:block;font-size:1.1rem}
+    .cities{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.city-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.city-list span{padding:18px;background:white;border:1px solid var(--line);border-radius:8px;font-weight:900}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.steps article{background:#eef0e8;border-radius:8px;padding:26px}.steps span{display:inline-block;margin-bottom:42px;color:var(--cedar);font-weight:900}
+    .contact-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}.contact-panel,.form{padding:clamp(24px,4vw,42px);border-radius:8px}.contact-panel{background:var(--river);color:white}.contact-panel p{color:rgba(255,255,255,.78)}.links{display:flex;flex-direction:column;gap:12px;margin-top:30px;font-weight:900}
+    .form{display:grid;gap:16px;background:white;border:1px solid var(--line)}label{display:grid;gap:7px;color:var(--muted);font-size:.9rem;font-weight:900}input,select,textarea{width:100%;min-height:46px;padding:12px 13px;border:1px solid var(--line);border-radius:8px;background:#fbfaf6;font:inherit}textarea{resize:vertical}
+    footer{display:flex;justify-content:space-between;gap:18px;padding:28px clamp(20px,4vw,64px);border-top:1px solid var(--line);color:var(--muted)}footer strong{color:var(--ink)}
+    @media(max-width:900px){header{align-items:flex-start;flex-direction:column}.phone{position:absolute;top:24px;right:20px}.stats,.split,.grid,.steps,.contact-wrap{grid-template-columns:1fr}.city-list{grid-template-columns:repeat(2,1fr)}.card-body{min-height:auto}}
+    @media(max-width:560px){nav{width:100%;justify-content:space-between;gap:10px;overflow-x:auto}.phone{display:none}.hero{min-height:680px}.hero-content{margin-bottom:80px}section{width:min(100% - 28px,1180px)}.city-list,footer{display:grid;grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#top"><span class="mark">A</span><span>Araya.ca</span></a>
+    <nav><a href="#homes">Homes</a><a href="#cities">Cities</a><a href="#service">Service</a><a href="#contact">Contact</a></nav>
+    <a class="phone" href="tel:905-428-7677">905-428-7677</a>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Ontario rentals, thoughtfully managed</p>
+        <h1>Araya.ca</h1>
+        <p>A new home for apartment rentals across Ontario, built on decades of family-owned property management, attentive service, and communities people are proud to come home to.</p>
+        <div class="buttons"><a class="btn primary" href="#homes">View rentals</a><a class="btn secondary" href="#contact">Book a showing</a></div>
+      </div>
+    </div>
+
+    <section class="stats">
+      <div class="stat"><strong>50+</strong><span>years of family-owned experience</span></div>
+      <div class="stat"><strong>16</strong><span>Ontario communities served</span></div>
+      <div class="stat"><strong>24/7</strong><span>online maintenance request access</span></div>
+    </section>
+
+    <section class="split" id="service">
+      <div><p class="eyebrow">A clearer rental experience</p><h2>Professional homes with a personal standard.</h2></div>
+      <div class="copy"><p>Araya.ca reimagines the Family Properties experience with a refined, renter-first identity. We focus on well-kept suites, responsive management, convenient online service, and practical guidance from inquiry to move-in.</p><p>The portfolio includes apartment communities across the Greater Toronto Area and Ontario, with rental options ranging from bachelor suites to larger family-sized apartments.</p></div>
+    </section>
+
+    <section id="homes">
+      <div class="heading"><p class="eyebrow">Featured availability</p><h2>Find your next apartment.</h2></div>
+      <div class="filters"><button class="active" data-city="all">All</button><button data-city="hamilton">Hamilton</button><button data-city="penetanguishene">Penetanguishene</button><button data-city="gta">GTA</button></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="cities" id="cities">
+      <div class="heading"><p class="eyebrow">Where we rent</p><h2>Across Ontario's connected communities.</h2></div>
+      <div class="city-list"><span>Ajax</span><span>Barrie</span><span>Cambridge</span><span>Hamilton</span><span>Mississauga</span><span>Newmarket</span><span>Oshawa</span><span>Penetanguishene</span><span>Pickering</span><span>Port Hope</span><span>Scarborough</span><span>Toronto</span><span>Whitby</span><span>Windsor</span></div>
+    </section>
+
+    <section>
+      <div class="heading"><p class="eyebrow">How it works</p><h2>From search to keys, keep it simple.</h2></div>
+      <div class="steps"><article><span>01</span><h3>Explore homes</h3><p>Review featured suites, compare city options, and shortlist the communities that match your life.</p></article><article><span>02</span><h3>Schedule a showing</h3><p>Connect with our rental team for availability, application details, and building-specific questions.</p></article><article><span>03</span><h3>Move in with support</h3><p>Use online maintenance requests and direct office support after move-in whenever you need help.</p></article></div>
+    </section>
+
+    <section class="contact-wrap" id="contact">
+      <div class="contact-panel"><p class="eyebrow">Head office</p><h2>Talk to Araya.</h2><p>For availability, showings, applications, and resident support, reach our Ontario rental office.</p><div class="links"><a href="tel:905-428-7677">905-428-7677</a><a href="mailto:leasing@araya.ca">leasing@araya.ca</a><span>50 Commercial Avenue, Ajax, Ontario L1S 2H5</span></div></div>
+      <form class="form" action="mailto:leasing@araya.ca" method="post" enctype="text/plain"><label>Name<input name="name" required></label><label>Email<input name="email" type="email" required></label><label>Preferred city<select name="city"><option>Hamilton</option><option>Penetanguishene</option><option>Oshawa</option><option>Whitby</option><option>Ajax</option><option>Toronto</option><option>Other Ontario community</option></select></label><label>Message<textarea name="message" rows="4" placeholder="Tell us what kind of suite you are looking for."></textarea></label><button class="btn primary" type="submit">Send inquiry</button></form>
+    </section>
+  </main>
+
+  <footer><strong>Araya.ca</strong><span>Ontario apartment rentals</span><span>Family-owned management since 1972</span></footer>
+
+  <script>
+    const properties=[
+      {cityKey:"hamilton",cityLabel:"Hamilton",name:"Sandstone Residence",address:"1 Duke Street, Hamilton",rent:"From $1,749",type:"Bachelor and one bedroom suites",image:"https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80"},
+      {cityKey:"penetanguishene",cityLabel:"Penetanguishene",name:"Harbourview Court",address:"90 Main Street, Penetanguishene",rent:"From $1,665",type:"One bedroom suites",image:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"},
+      {cityKey:"gta",cityLabel:"Oshawa",name:"Durham House",address:"Central Oshawa",rent:"Contact for availability",type:"Bachelor to two bedroom suites",image:"https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80"},
+      {cityKey:"gta",cityLabel:"Whitby",name:"Gardenway Apartments",address:"Whitby, Ontario",rent:"Contact for availability",type:"One and two bedroom suites",image:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"}
+    ];
+    const grid=document.querySelector("#grid");
+    function render(city="all"){grid.innerHTML=(city==="all"?properties:properties.filter(p=>p.cityKey===city)).map(p=>`<article class="card"><img src="${p.image}" alt="${p.name} in ${p.cityLabel}"><div class="card-body"><div><span class="pill">${p.cityLabel}</span><h3>${p.name}</h3><p>${p.address}</p></div><div class="meta"><strong>${p.rent}</strong><span>${p.type}</span></div><a href="#contact">Ask about this suite</a></div></article>`).join("")}
+    document.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.city)});
+    render();
+  </script>
+</body>
+</html>
