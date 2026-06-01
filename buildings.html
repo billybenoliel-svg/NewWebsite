@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buildings | Araya.ca</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="buildings">
+  <div class="topbar">See a building you like? Use Details, Original listing, Inquire, Apply, or Call.</div>
+  <header id="siteHeader"></header>
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Buildings</p>
+      <h1>Featured rental properties.</h1>
+      <p>Filter by city or suite type. Every card has working actions and no dead-end header navigation.</p>
+    </section>
+    <section class="section">
+      <div class="filters">
+        <button class="filter active" type="button" data-filter="all">All</button>
+        <button class="filter" type="button" data-filter="toronto">Toronto</button>
+        <button class="filter" type="button" data-filter="hamilton">Hamilton</button>
+        <button class="filter" type="button" data-filter="oshawa">Oshawa</button>
+        <button class="filter" type="button" data-filter="penetanguishene">Penetanguishene</button>
+        <button class="filter" type="button" data-filter="sault-ste-marie">Sault Ste. Marie</button>
+        <button class="filter" type="button" data-filter="bachelor">Bachelor</button>
+        <button class="filter" type="button" data-filter="1">1 bedroom</button>
+        <button class="filter" type="button" data-filter="2">2 bedroom</button>
+        <button class="filter" type="button" data-filter="townhouse">Townhouse</button>
+      </div>
+      <div class="buildings-grid" id="buildingGrid"></div>
+      <div class="availability" id="availabilityGrid"></div>
+    </section>
+  </main>
+  <footer id="siteFooter"></footer>
+  <dialog id="detailsModal">
+    <div class="modal-head">
+      <div><p class="eyebrow">Building details</p><h3 id="modalTitle"></h3></div>
+      <button type="button" id="modalClose" aria-label="Close details">x</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </dialog>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
