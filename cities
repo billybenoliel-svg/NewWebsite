@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cities | Araya.ca</title>
+  <meta
+    name="description"
+    content="Browse Araya.ca apartment rental cities across Ontario."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-page="cities">
+  <div class="topbar">
+    Have a city in mind?
+    <a href="contact.html">Ask leasing about availability</a>.
+  </div>
+
+  <header id="siteHeader"></header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Cities</p>
+      <h1>Browse by location.</h1>
+      <p>
+        Choose a city to see confirmed public building listings, or contact
+        leasing about current and upcoming availability.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Ontario markets</p>
+          <h2>Find your city.</h2>
+        </div>
+      </div>
+
+      <div class="city-grid" id="cityGrid"></div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Availability changes</p>
+        <h2>Not every city has public listings every day.</h2>
+      </div>
+
+      <div class="body-copy">
+        <p>
+          Some cities may have confirmed buildings listed publicly, while others
+          may require a direct leasing inquiry for current or upcoming
+          availability.
+        </p>
+
+        <p>
+          If your preferred city does not show a building yet, use the contact
+          page and ask about the city directly.
+        </p>
+
+        <a class="button primary" href="contact.html">Contact leasing</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
