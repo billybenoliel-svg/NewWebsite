@@ -6,15 +6,14 @@
   <title>Buildings | Araya.ca</title>
   <meta
     name="description"
-    content="Browse Araya.ca apartment buildings and rental availability across Ontario."
+    content="Browse Araya.ca apartment buildings across Ontario."
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body data-page="buildings">
   <div class="topbar">
-    See a building you like? Use Details, Original listing, Inquire, Apply, or
-    Call.
+    Choose a city, view buildings, and open a full detail page for each property.
   </div>
 
   <header id="siteHeader"></header>
@@ -24,8 +23,8 @@
       <p class="eyebrow">Buildings</p>
       <h1>Featured rental properties.</h1>
       <p>
-        Filter by city or suite type. Every card has working actions and no
-        dead-end header navigation.
+        Browse buildings by city. Each property has a full details page with
+        suite types, rates, amenities, and leasing actions.
       </p>
     </section>
 
@@ -33,7 +32,7 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Browse listings</p>
-          <h2>Choose a city or suite type.</h2>
+          <h2>Choose a city.</h2>
         </div>
 
         <a
@@ -47,69 +46,19 @@
       </div>
 
       <div class="filters">
-        <button class="filter active" type="button" data-filter="all">
-          All
-        </button>
-
-        <button class="filter" type="button" data-filter="toronto">
-          Toronto
-        </button>
-
-        <button class="filter" type="button" data-filter="hamilton">
-          Hamilton
-        </button>
-
-        <button class="filter" type="button" data-filter="oshawa">
-          Oshawa
-        </button>
-
-        <button class="filter" type="button" data-filter="penetanguishene">
-          Penetanguishene
-        </button>
-
-        <button class="filter" type="button" data-filter="sault-ste-marie">
-          Sault Ste. Marie
-        </button>
-
-        <button class="filter" type="button" data-filter="bachelor">
-          Bachelor
-        </button>
-
-        <button class="filter" type="button" data-filter="1">
-          1 bedroom
-        </button>
-
-        <button class="filter" type="button" data-filter="2">
-          2 bedroom
-        </button>
-
-        <button class="filter" type="button" data-filter="townhouse">
-          Townhouse
-        </button>
+        <button class="filter active" type="button" data-filter="all">All</button>
+        <button class="filter" type="button" data-filter="toronto">Toronto</button>
+        <button class="filter" type="button" data-filter="hamilton">Hamilton</button>
+        <button class="filter" type="button" data-filter="oshawa">Oshawa</button>
+        <button class="filter" type="button" data-filter="penetanguishene">Penetanguishene</button>
+        <button class="filter" type="button" data-filter="sault-ste-marie">Sault Ste. Marie</button>
       </div>
 
       <div class="buildings-grid" id="buildingGrid"></div>
-
-      <div class="availability" id="availabilityGrid"></div>
     </section>
   </main>
 
   <footer id="siteFooter"></footer>
-
-  <dialog id="detailsModal">
-    <div class="modal-head">
-      <div>
-        <p class="eyebrow">Building details</p>
-        <h3 id="modalTitle"></h3>
-      </div>
-
-      <button type="button" id="modalClose" aria-label="Close details">
-        x
-      </button>
-    </div>
-
-    <div class="modal-body" id="modalBody"></div>
-  </dialog>
 
   <script src="data.js"></script>
   <script src="app.js"></script>
