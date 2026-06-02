@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Building Details | Araya.ca</title>
+  <meta
+    name="description"
+    content="View Araya.ca building details, suite types, rates, amenities, and leasing contact information."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-page="details">
+  <div class="topbar">
+    View building details, suite options, and leasing contact information.
+  </div>
+
+  <header id="siteHeader"></header>
+
+  <main>
+    <section class="page-hero detail-hero">
+      <p class="eyebrow">Building details</p>
+      <h1 id="detailTitle">Building</h1>
+      <p id="detailAddress"></p>
+
+      <div class="hero-actions">
+        <a class="button primary" id="detailContact" href="contact.html">Book a tour</a>
+        <a
+          class="button light"
+          href="https://secured-forms.com/reply-to/family-properties"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Apply now
+        </a>
+      </div>
+    </section>
+
+    <section class="section detail-layout">
+      <article class="detail-main">
+        <p class="eyebrow">Overview</p>
+        <h2 id="detailName">Property overview</h2>
+        <p class="detail-copy" id="detailSummary"></p>
+
+        <div class="detail-block">
+          <p class="eyebrow">Suite types & rates</p>
+          <div class="detail-suites" id="detailSuites"></div>
+        </div>
+
+        <div class="detail-block">
+          <p class="eyebrow">Amenities</p>
+          <div class="amenity-grid" id="detailAmenities"></div>
+        </div>
+      </article>
+
+      <aside class="detail-sidebar">
+        <div class="sidebar-card">
+          <p class="eyebrow">Leasing</p>
+          <h3>Ready to ask about this building?</h3>
+          <p class="muted">
+            Contact leasing for current pricing, availability, tours, and application details.
+          </p>
+
+          <div class="contact-links dark-links">
+            <a href="tel:437-455-9322">(437) 455-9322</a>
+            <a href="tel:416-783-6115">416-783-6115</a>
+            <a href="mailto:leasing@araya.ca">leasing@araya.ca</a>
+          </div>
+
+          <a class="button primary full" id="sidebarContact" href="contact.html">
+            Ask about this building
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Original listing</p>
+          <a class="text-link" id="originalListing" href="#" target="_blank" rel="noreferrer">
+            View source listing
+          </a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
