@@ -4,7 +4,6 @@ function cityName(id) {
 
 function renderHeader() {
   const header = document.querySelector("#siteHeader");
-
   if (!header) return;
 
   header.innerHTML = `
@@ -20,25 +19,14 @@ function renderHeader() {
     </nav>
 
     <div class="header-actions">
-      <a
-        class="button light"
-        href="${applyUrl}"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Apply
-      </a>
-
-      <a class="button dark" href="tel:437-455-9322">
-        Call
-      </a>
+      <a class="button light" href="${applyUrl}" target="_blank" rel="noreferrer">Apply</a>
+      <a class="button dark" href="tel:437-455-9322">Call</a>
     </div>
   `;
 }
 
 function renderFooter() {
   const footer = document.querySelector("#siteFooter");
-
   if (!footer) return;
 
   footer.innerHTML = `
@@ -50,7 +38,6 @@ function renderFooter() {
 
 function renderCityCards(limit) {
   const target = document.querySelector("#cityGrid");
-
   if (!target) return;
 
   const list = limit ? cities.slice(0, limit) : cities;
@@ -70,17 +57,11 @@ function renderCityCards(limit) {
 
 function matchesFilter(building, filter) {
   if (!filter || filter === "all") return true;
-
-  if (["bachelor", "1", "2", "townhouse"].includes(filter)) {
-    return building.bedrooms.includes(filter);
-  }
-
   return building.city === filter;
 }
 
 function renderPropertySelect() {
   const select = document.querySelector("#propertySelect");
-
   if (!select) return;
 
   const buildingOptions = buildings
@@ -102,27 +83,14 @@ function renderPropertySelect() {
 
 function setSelectedProperty(name) {
   const select = document.querySelector("#propertySelect");
-
-  if (select) {
-    select.value = name;
-  }
-
-  const modal = document.querySelector("#detailsModal");
-
-  if (modal?.open) {
-    modal.close();
-  }
+  if (select) select.value = name;
 }
 
 function renderBuildings(filter = "all") {
   const buildingGrid = document.querySelector("#buildingGrid");
-  const availabilityGrid = document.querySelector("#availabilityGrid");
-
   if (!buildingGrid) return;
 
-  const visible = buildings.filter((building) =>
-    matchesFilter(building, filter),
-  );
+  const visible = buildings.filter((building) => matchesFilter(building, filter));
 
   if (!visible.length) {
     buildingGrid.innerHTML = `
@@ -131,11 +99,6 @@ function renderBuildings(filter = "all") {
         yet. Contact leasing and ask about current or upcoming availability.
       </div>
     `;
-
-    if (availabilityGrid) {
-      availabilityGrid.innerHTML = "";
-    }
-
     return;
   }
 
@@ -155,18 +118,10 @@ function renderBuildings(filter = "all") {
 
           <p>${building.summary}</p>
 
-          <ul class="features">
-            ${building.features.map((feature) => `<li>${feature}</li>`).join("")}
-          </ul>
-
           <div class="card-actions">
-            <button
-              class="button dark"
-              type="button"
-              data-details="${building.id}"
-            >
-              Details
-            </button>
+            <a class="button dark" href="details.html?id=${building.id}">
+              More details
+            </a>
 
             <a
               class="button light"
@@ -188,94 +143,46 @@ function renderBuildings(filter = "all") {
       `,
     )
     .join("");
-
-  if (availabilityGrid) {
-    availabilityGrid.innerHTML = visible
-      .flatMap((building) =>
-        building.suites.map(
-          (suite) => `
-            <article class="suite-row">
-              <div>
-                <strong>${suite.name}</strong>
-                <p>${building.name} - ${cityName(building.city)}</p>
-              </div>
-
-              <span>${suite.price}</span>
-
-              <a
-                class="button light"
-                href="contact.html?property=${encodeURIComponent(building.name)}"
-              >
-                Inquire
-              </a>
-            </article>
-          `,
-        ),
-      )
-      .join("");
-  }
-
-  wireActions();
 }
 
-function openDetails(id) {
-  const building = buildings.find((item) => item.id === id);
-  const modal = document.querySelector("#detailsModal");
+function renderDetailPage() {
+  if (document.body.dataset.page !== "details") return;
 
-  if (!building || !modal) return;
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const building = buildings.find((item) => item.id === id) || buildings[0];
 
-  document.querySelector("#modalTitle").textContent = building.name;
+  document.title = `${building.name} | Araya.ca`;
 
-  document.querySelector("#modalBody").innerHTML = `
-    <p><strong>${building.address}</strong></p>
-    <p class="muted">${building.summary}</p>
+  document.querySelector("#detailTitle").textContent = building.name;
+  document.querySelector("#detailAddress").textContent =
+    `${building.address} · ${cityName(building.city)}`;
+  document.querySelector("#detailName").textContent = building.name;
+  document.querySelector("#detailSummary").textContent = building.summary;
 
-    ${building.suites
-      .map(
-        (suite) => `
-          <div class="modal-suite">
-            <span>
-              ${suite.name}
-              <br>
-              <small>${suite.status}</small>
-            </span>
+  const contactUrl = `contact.html?property=${encodeURIComponent(building.name)}`;
+  document.querySelector("#detailContact").href = contactUrl;
+  document.querySelector("#sidebarContact").href = contactUrl;
+  document.querySelector("#originalListing").href = building.link;
 
-            <strong>${suite.price}</strong>
+  document.querySelector("#detailSuites").innerHTML = building.suites
+    .map(
+      (suite) => `
+        <article class="detail-suite">
+          <div>
+            <h3>${suite.name}</h3>
+            <p>${suite.status}</p>
           </div>
-        `,
-      )
-      .join("")}
+          <strong>${suite.price}</strong>
+          <a class="button light" href="${contactUrl}">Inquire</a>
+        </article>
+      `,
+    )
+    .join("");
 
-    <ul class="features">
-      ${building.features.map((feature) => `<li>${feature}</li>`).join("")}
-    </ul>
-
-    <div class="card-actions">
-      <a
-        class="button primary"
-        href="contact.html?property=${encodeURIComponent(building.name)}"
-      >
-        Book a tour
-      </a>
-
-      <a
-        class="button light"
-        href="${applyUrl}"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Apply now
-      </a>
-    </div>
-  `;
-
-  modal.showModal();
-}
-
-function wireActions() {
-  document.querySelectorAll("[data-details]").forEach((button) => {
-    button.onclick = () => openDetails(button.dataset.details);
-  });
+  document.querySelector("#detailAmenities").innerHTML = building.features
+    .map((feature) => `<span>${feature}</span>`)
+    .join("");
 }
 
 function setupBuildingPage() {
@@ -300,17 +207,13 @@ function setupBuildingPage() {
 
 function setupHomeSearch() {
   const form = document.querySelector("#quickSearch");
-
   if (!form) return;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const city = document.querySelector("#citySelect").value;
-    const bedrooms = document.querySelector("#bedSelect").value;
-    const filter = bedrooms !== "all" ? bedrooms : city;
-
-    window.location.href = `buildings.html?city=${encodeURIComponent(filter)}`;
+    window.location.href = `buildings.html?city=${encodeURIComponent(city)}`;
   });
 }
 
@@ -320,16 +223,12 @@ function setupContactPage() {
   const params = new URLSearchParams(window.location.search);
   const property = params.get("property");
 
-  if (property) {
-    setSelectedProperty(property);
-  }
+  if (property) setSelectedProperty(property);
 }
 
 renderHeader();
 renderFooter();
-
 renderCityCards(document.body.dataset.page === "home" ? 5 : undefined);
-
 setupHomeSearch();
 
 if (document.body.dataset.page === "buildings") {
@@ -340,6 +239,4 @@ if (document.body.dataset.page === "contact") {
   setupContactPage();
 }
 
-document.querySelector("#modalClose")?.addEventListener("click", () => {
-  document.querySelector("#detailsModal").close();
-});
+renderDetailPage();
